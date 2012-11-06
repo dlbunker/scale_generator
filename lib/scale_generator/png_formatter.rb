@@ -10,8 +10,9 @@ module ScaleGenerator
       @strings = strings
     end
 
-    def print(options={})
+    def print(options={}, show_intervals = false)
       @label = options[:label]
+      @show_intervals = show_intervals
       @frets = []
       
       @scale_hash.each do |key, val| 
@@ -23,20 +24,6 @@ module ScaleGenerator
       @max_fret = @frets.flatten.max
       @min_fret = @frets.flatten.min
       @min_fret = 1 if @max_fret <= 4
-      
-      @min_bar_string = -1
-      @max_bar_string = 0
-      
-      # @frets.each_with_index do |fret, index|
-      #   if fret[:barred_note] && @min_bar_string < 0
-      #     @min_bar_string = index
-      #     @max_bar_string = index
-      #   elsif fret[:barred_note]
-      #     @max_bar_string = index
-      #   end
-      # end
-      # 
-      # @min_bar_string = 0 if @min_bar_string == -1
       @number_of_frets = [@max_fret - @min_fret + 1, 4].max
 
       get_png_data
@@ -101,9 +88,16 @@ module ScaleGenerator
             end
 
             # Add fingering to finger dot
-            if str_ctx[:fingers][ii]
+            if str_ctx[:fingers][ii] && !@show_intervals
               canvas.text(i*width_of_fret+margin_side_of_chord + 1, (fret - @min_fret + 1)*height_of_fret - (height_of_fret / 2) + margin_top_of_chord + 8) do |txt| 
                 txt.tspan(str_ctx[:fingers][ii].to_s).styles(:text_anchor => 'middle',
+                :font_size => 24, 
+                :font_family => 'helvetica',
+                :fill => 'white')
+              end
+            elsif @show_intervals
+              canvas.text(i*width_of_fret+margin_side_of_chord + 1, (fret - @min_fret + 1)*height_of_fret - (height_of_fret / 2) + margin_top_of_chord + 8) do |txt| 
+                txt.tspan(str_ctx[:intervals][ii].to_s).styles(:text_anchor => 'middle',
                 :font_size => 24, 
                 :font_family => 'helvetica',
                 :fill => 'white')
@@ -117,15 +111,6 @@ module ScaleGenerator
             :font_family => 'helvetica',
             :fill => 'black')
           end
-
-          # if @frets[i][:interval]
-          #   canvas.text(i*width_of_fret+margin_side_of_chord, height - margin_bottom_of_chord + 40) do |txt| 
-          #     txt.tspan(@frets[i][:interval]).styles(:text_anchor => 'middle',
-          #     :font_size => 18, 
-          #     :font_family => 'helvetica',
-          #     :fill => 'black')
-          #   end
-          # end
         end
         
         if @label
