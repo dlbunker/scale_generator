@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["dlbunker"]
   s.date = "2012-11-14"
-  s.description = "TODO: longer description of your gem"
+  s.description = "A Ruby library to generate images of guitar, ukulele, mandolin or banjo scale diagrams"
   s.email = "mcirque@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -43,7 +43,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.15"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "A Ruby library to generate images of guitar, ukulele, mandolin or banjo scale diagrams"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
