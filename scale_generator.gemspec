@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
     "lib/scale_generator/dictionary.rb",
     "lib/scale_generator/png_formatter.rb",
     "lib/scale_generator/scale.rb",
+    "scale_generator.gemspec",
     "test/helper.rb",
     "test/test_scale_generator.rb"
   ]
