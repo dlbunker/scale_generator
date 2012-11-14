@@ -56,7 +56,7 @@ Create a DSL block with your scale definition.  For each string block you can de
 
 This will write a basic A Major Scale to <tt>./AMajorScale.png</tt>:
 
-![A - Major](https://github.com/dlbunker/chord_generator/raw/master/examples/AMajorScale.png)
+![A - Major](https://github.com/dlbunker/scale_generator/raw/master/examples/AMajorScale.png)
 
 If you'd prefer to print the intervals rather than the finger use the true parameter on the .to_png method call:
 
@@ -100,7 +100,7 @@ If you'd prefer to print the intervals rather than the finger use the true param
 
 This will write a basic A Major Scale with intervals to <tt>./AMajorScale-intervals.png</tt>:
 
-![A - Major](https://github.com/dlbunker/chord_generator/raw/master/examples/AMajorScale-intervals.png)
+![A - Major](https://github.com/dlbunker/scale_generator/raw/master/examples/AMajorScale-intervals.png)
 
 == Contributing to scale_generator
  
