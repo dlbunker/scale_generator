@@ -10,7 +10,7 @@ module ScaleGenerator
     def to_png(show_intervals = false, options = {})
       tuning = (options[:tuning].nil?) ? ScaleGenerator::Dictionary::GUITAR_TUNINGS[:standard] : options[:tuning]
 
-      ScaleGenerator::PNGFormatter.new(@scale_hash, tuning).print(@scale_hash, show_intervals)
+      ScaleGenerator::PNGFormatter.new(@scale_hash, tuning).print(options, show_intervals)
     end
     
     def name
