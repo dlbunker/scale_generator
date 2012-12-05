@@ -110,9 +110,12 @@ module ScaleGenerator
                   :fill => 'white')
                 end
               elsif @show_intervals
+                fsize = 24
+                fsize = 18 if str_ctx[:intervals][ii].to_s.size > 1
+                
                 canvas.text(i*width_of_fret+margin_side_of_chord + 1, (fret - @min_fret + 1)*height_of_fret - (height_of_fret / 2) + margin_top_of_chord + 8) do |txt| 
                   txt.tspan(str_ctx[:intervals][ii].to_s).styles(:text_anchor => 'middle',
-                  :font_size => 24, 
+                  :font_size => fsize, 
                   :font_family => 'helvetica',
                   :fill => 'white')
                 end
